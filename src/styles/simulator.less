@@ -1,0 +1,71 @@
+/* DEVICE SIMULATOR */
+
+@viewBoxWidth: 300px;
+@viewBoxHeight: 598px;
+@svgWidth: 320px;
+@svgHeight: 634px;
+@bigSizeFactor: 1.3;
+
+@iframeTopInViewBox: 82px;
+@iframeLeftInViewBox: 21px;
+@iframeWidthInViewBox: 257px;
+@iframeHeightInViewBox: 427px;
+
+@viewBoxRatio: @svgHeight / @viewBoxHeight;
+
+#iPhonePreview {
+
+  top: ~"calc(50% - 20px)";
+
+  .iPhone6 {
+
+    position: absolute;
+    top: @iframeTopInViewBox * @viewBoxRatio;
+    left: @iframeLeftInViewBox * @viewBoxRatio;
+    width: @iframeWidthInViewBox * @viewBoxRatio;
+    height: @iframeHeightInViewBox * @viewBoxRatio;
+
+    @iframeWidth: @iframeWidthInViewBox * @viewBoxRatio;
+    @iframeHeight: @iframeHeightInViewBox * @viewBoxRatio;
+
+    overflow: hidden; // else we can scroll on whole page on right, because of iframe view scaling
+
+    .container {
+
+      height: 100%;
+      padding: 0;
+      margin: 0;
+
+      iframe {
+        margin:0;
+        border: none;
+        transform: scale(0.8);
+        transform-origin: 0 0 0;
+        width: @iframeWidth / 0.8;
+        height: @iframeHeight / 0.8;
+      }
+    }
+  }
+
+  .iphone-svg  {
+
+    width: @svgWidth;
+    height: @svgHeight;
+
+    path, rect, circle, ellipse {
+      stroke: #e0e0e0;
+      stroke-width: 2px;
+    }
+
+    #screen {
+      stroke-width: 3px;
+    }
+  }
+}
+
+.warning-media-treatment {
+  width: 100%;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #434343;
+}

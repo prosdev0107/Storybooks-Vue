@@ -1,0 +1,61 @@
+
+// XLarge screen
+@screen-xlg:                  1600px;
+@grid-gutter-width:           30px;
+@grid-columns:                12;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-lg-max:              (@screen-xlg - 1);
+
+//== Container sizes
+// Large screen / wide desktop
+@container-xlg:      ((1540px + @grid-gutter-width));
+
+
+.make-grid-xlgcolumns() {
+  // Common styles for all sizes of grid columns, widths 1-12
+  .col(@index) when (@index = 1) { // initial
+    @item: ~".col-xlg-@{index}";
+    .media-min-width(@index, @item);
+    .col((@index + 1), @item);
+  }
+  .col(@index, @list) when (@index =< @grid-columns) { // general; "=<" isn't a typo
+    @item: ~".col-xlg-@{index}";
+    .media-min-width(@index, @item);
+    .col((@index + 1), ~"@{list}, @{item}");
+  }
+  .col(@index, @list) when (@index > @grid-columns) { // terminal
+    @item: ~".col-xlg-@{index}";
+    @{list} {
+      position: relative;
+      // Prevent columns from collapsing when empty
+      min-height: 1px;
+      // Inner gutter via padding
+      padding-left:  (@grid-gutter-width / 2);
+      padding-right: (@grid-gutter-width / 2);
+
+    }
+  }
+  .col(1); // kickstart it
+}
+.make-grid-xlgcolumns();
+
+
+// Generate the large columns
+.media-min-width(@index, @list) {
+
+  @percent: percentage((@index / 12));
+
+  @media (min-width: @screen-xlg) {
+
+    @{list} {
+      float: left;
+      width: @percent;
+      max-width: @percent;
+      -ms-flex: 0 0 @percent;
+      flex: 0 0 @percent;
+    }
+
+  }
+
+}

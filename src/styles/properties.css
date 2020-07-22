@@ -1,0 +1,29 @@
+.properties-sidebar-container {
+  position: absolute;
+  right: 0;
+  top: 75px;
+  bottom: 0px;
+  width: 30%;
+  min-width: 250px;
+}
+.properties-sidebar-container .properties-sidebar {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  max-height: calc( 100% - 75px);
+  top: calc( 50% - 37.5px);
+  overflow: visible;
+  overflow-y: auto;
+  background: white;
+  border-bottom-left-radius: 6px;
+  border-top-left-radius: 6px;
+  -webkit-box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.18);
+  box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.18);
+}
+@media (max-height: 800px) {
+  .properties-sidebar-container .properties-sidebar {
+    top: 50%;
+    max-height: 100%;
+  }
+}
+/*# sourceMappingURL=properties.css.map */

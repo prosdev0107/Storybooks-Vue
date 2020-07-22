@@ -1,0 +1,14 @@
+.media-template-library {
+  overflow-y: auto;
+}
+.media-template-library .media-template {
+  height: 400px;
+  background-color: blue;
+  color: white;
+}
+.media-template-library .media-template.selected {
+  border: solid 2px #007bff;
+  color: #007bff;
+  font-weight: 400;
+}
+/*# sourceMappingURL=templatesLibrary.css.map */

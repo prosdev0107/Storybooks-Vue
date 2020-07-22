@@ -1,0 +1,206 @@
+.media-panel-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.media-panel-container .media-panel {
+  height: 571px;
+  width: 350px;
+  position: relative;
+  background: white;
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18);
+}
+.media-panel-container .media-panel .media-panel-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.media-panel-container .media-panel .media-panel-layer-media {
+  z-index: 0;
+}
+.media-panel-container .media-panel .media-panel-layer-overlay {
+  z-index: 1;
+}
+.media-panel-container .media-panel .media-panel-layer-stickers {
+  z-index: 2;
+}
+.media-panel-container .media-panel .media-panel-layer-stickers .alignment-line {
+  position: absolute;
+  border: solid 1px yellow;
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18);
+}
+.media-panel-container .media-panel .media-panel-layer-stickers .alignment-line.alignment-line-vertical {
+  height: 100%;
+}
+.media-panel-container .media-panel .media-panel-layer-stickers .alignment-line.alignment-line-horizontal {
+  width: 100%;
+}
+.media-panel-container .media-panel .media-panel-layer-stickers .story-sticker {
+  cursor: move;
+  position: absolute;
+  content: '';
+  transform: translate(-50%, -50%);
+}
+.media-panel-container .media-panel .media-panel-layer-stickers .story-sticker.story-sticker-text_svg {
+  cursor: text;
+}
+.media-panel-container .media-panel .media-panel-layer-stickers .story-sticker * {
+  pointer-events: none;
+}
+.media-panel-container .media-panel .media-panel-layer-stickers .story-sticker.selected.story-sticker-text_svg {
+  cursor: move;
+  border-top: 2px dashed #000;
+  border-bottom: 2px dashed #000;
+}
+.media-panel-container .media-panel .media-panel-layer-stickers .story-sticker.selected:not(.story-sticker-text_svg) {
+  border: 2px dashed #000;
+}
+.media-panel-container .media-panel .media-panel-layer-stickers .story-sticker.selected:not(.story-sticker-text_svg) .rotatable-handle {
+  position: absolute;
+  top: -25px;
+  left: calc(50% -  4px);
+  height: 25px;
+  width: 8px;
+}
+.media-panel-container .media-panel .media-panel-layer-stickers .story-sticker.selected:not(.story-sticker-text_svg) .rotatable-handle .rotatable-handle-bar {
+  position: absolute;
+  left: calc(50% - 1px);
+  border: solid 1px #000;
+  height: 100%;
+}
+.media-panel-container .media-panel .media-panel-layer-stickers .story-sticker.selected:not(.story-sticker-text_svg) .rotatable-handle .rotatable-handle-circle {
+  cursor: url("../images/rotate-icon.png") 12 12, row-resize;
+  pointer-events: auto;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #000;
+  border: 1px solid #fff;
+}
+.media-panel-container .media-panel .media-panel-layer-stickers .story-sticker.selected:not(.story-sticker-text_svg) .resizable-handle {
+  width: 8px;
+  height: 8px;
+  background-color: #000;
+  border: 1px solid #fff;
+  position: absolute;
+  pointer-events: auto;
+}
+.media-panel-container .media-panel .media-panel-layer-stickers .story-sticker.selected:not(.story-sticker-text_svg) .resizable-nw {
+  left: -4px;
+  top: -4px;
+  cursor: nwse-resize;
+}
+.media-panel-container .media-panel .media-panel-layer-stickers .story-sticker.selected:not(.story-sticker-text_svg) .resizable-ne {
+  top: -4px;
+  right: -4px;
+  cursor: nesw-resize;
+}
+.media-panel-container .media-panel .media-panel-layer-stickers .story-sticker.selected:not(.story-sticker-text_svg) .resizable-sw {
+  bottom: -4px;
+  left: -4px;
+  cursor: nesw-resize;
+}
+.media-panel-container .media-panel .media-panel-layer-stickers .story-sticker.selected:not(.story-sticker-text_svg) .resizable-se {
+  bottom: -4px;
+  right: -4px;
+  cursor: nwse-resize;
+}
+.media-panel-container .media-panel .media-panel-layer-stickers .story-sticker.selected:not(.story-sticker-text_svg) .resizable-n {
+  top: -4px;
+  left: calc(50% -  4px);
+  cursor: ns-resize;
+}
+.media-panel-container .media-panel .media-panel-layer-stickers .story-sticker.selected:not(.story-sticker-text_svg) .resizable-s {
+  bottom: -4px;
+  left: calc(50% -  4px);
+  cursor: ns-resize;
+}
+.media-panel-container .media-panel .media-panel-layer-stickers .story-sticker.selected:not(.story-sticker-text_svg) .resizable-w {
+  left: -4px;
+  top: calc(50% -  4px);
+  cursor: ew-resize;
+}
+.media-panel-container .media-panel .media-panel-layer-stickers .story-sticker.selected:not(.story-sticker-text_svg) .resizable-e {
+  right: -4px;
+  top: calc(50% -  4px);
+  cursor: ew-resize;
+}
+.media-panel-container .media-panel .media-panel-layer-buttons {
+  z-index: 3;
+  pointer-events: none;
+}
+.media-panel-container .media-panel .media-panel-layer-buttons * {
+  pointer-events: none;
+}
+.media-panel-container .media-panel .media-panel-layer-buttons iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  opacity: 0;
+  transform-origin: 0 0;
+}
+@media (max-height: 930px) {
+  .media-panel-container {
+    top: auto;
+    bottom: 100px;
+    transform: translateX(-50%);
+  }
+}
+@media (max-height: 850px) {
+  .media-panel-container {
+    bottom: 100px;
+  }
+  .media-panel-container .media-panel {
+    height: 520px;
+    width: 319px;
+  }
+}
+@media (max-height: 780px) {
+  .media-panel-container .media-panel {
+    height: 490px;
+    width: 300px;
+  }
+}
+@media (max-height: 700px) {
+  .media-panel-container {
+    bottom: 85px;
+  }
+  .media-panel-container .media-panel {
+    height: 450px;
+    width: 276px;
+  }
+}
+@media (max-height: 660px) {
+  .media-panel-container .media-panel {
+    height: 420px;
+    width: 258px;
+  }
+}
+@media (max-height: 600px) {
+  .media-panel-container {
+    bottom: 70px;
+  }
+  .media-panel-container .media-panel {
+    height: 400px;
+    width: 246px;
+  }
+}
+@media (max-height: 580px) {
+  .media-panel-container .media-panel {
+    height: 380px;
+    width: 233px;
+  }
+}
+/*# sourceMappingURL=mediaPanel.css.map */

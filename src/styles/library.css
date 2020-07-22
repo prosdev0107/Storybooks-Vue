@@ -1,0 +1,97 @@
+.site-menubar {
+  width: 100px;
+  height: 100%;
+  top: 0;
+  z-index: 2;
+  background-color: #2a2e37;
+  -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.18);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.18);
+}
+.site-menubar .site-menu-item a {
+  padding: 16px 0;
+  color: white;
+}
+.site-menubar .site-menu-item a.active,
+.site-menubar .site-menu-item a:hover {
+  background-color: #f9f9f9;
+  color: #007bff;
+}
+.site-menubar .site-menu-item .fa {
+  font-size: 24px;
+  padding-bottom: 10px;
+}
+.stickers-library-container {
+  position: absolute;
+  top: 0;
+  left: 100px;
+  height: 100%;
+  width: calc( 30% - 100px );
+  min-width: 250px;
+  z-index: 1;
+}
+.stickers-library-container .stickers-library {
+  background-color: white;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  overflow-y: auto;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+}
+.stickers-library-container .stickers-library .stickers-library-shelf .library-sticker-container {
+  padding: 10px 0px;
+}
+.stickers-library-container .stickers-library .stickers-library-shelf .library-sticker-container > div {
+  border: 2px dashed lightgray;
+  border-radius: 5px;
+}
+.stickers-library-container .stickers-library .stickers-library-shelf .library-sticker-container .sticker {
+  cursor: pointer;
+}
+.stickers-library-container .stickers-library .stickers-library-shelf .library-sticker-container .sticker > * {
+  height: auto;
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.stickers-library-container .stickers-library .stickers-library-shelf .library-sticker-container .sticker > img {
+  margin: auto;
+}
+.library-css-filter {
+  margin-bottom: 20px;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+}
+.library-css-filter.selected {
+  border: solid 2px #007bff;
+  color: #007bff;
+  font-weight: 400;
+}
+.search-api-bar-container {
+  margin-bottom: -20px;
+}
+.search-api-bar-container .search-api-bar {
+  padding: 20px 10px 0 10px;
+}
+.search-api-bar-container .search-api-bar .form-group {
+  margin-bottom: 0px;
+}
+.search-api-bar-container .search-api-bar input {
+  text-align: center;
+}
+.search-api-bar-container .search-api-bar p {
+  margin: 0;
+}
+.search-api-bar-container .search-api-bar p small {
+  color: #b3b3b3;
+}
+/*# sourceMappingURL=library.css.map */

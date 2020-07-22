@@ -1,0 +1,24 @@
+.sticker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.sticker * {
+  pointer-events: none;
+}
+.sticker > * {
+  width: 100%;
+  height: 100%;
+  display: block;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.sticker svg {
+  overflow: visible;
+  width: 100%;
+  height: 100%;
+}
+/*# sourceMappingURL=sticker.css.map */

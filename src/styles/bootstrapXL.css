@@ -1,0 +1,115 @@
+@media (min-width: 1600px) {
+  .col-xlg-1 {
+    float: left;
+    width: 8.33333333%;
+    max-width: 8.33333333%;
+    -ms-flex: 0 0 8.33333333%;
+    flex: 0 0 8.33333333%;
+  }
+}
+@media (min-width: 1600px) {
+  .col-xlg-2 {
+    float: left;
+    width: 16.66666667%;
+    max-width: 16.66666667%;
+    -ms-flex: 0 0 16.66666667%;
+    flex: 0 0 16.66666667%;
+  }
+}
+@media (min-width: 1600px) {
+  .col-xlg-3 {
+    float: left;
+    width: 25%;
+    max-width: 25%;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+  }
+}
+@media (min-width: 1600px) {
+  .col-xlg-4 {
+    float: left;
+    width: 33.33333333%;
+    max-width: 33.33333333%;
+    -ms-flex: 0 0 33.33333333%;
+    flex: 0 0 33.33333333%;
+  }
+}
+@media (min-width: 1600px) {
+  .col-xlg-5 {
+    float: left;
+    width: 41.66666667%;
+    max-width: 41.66666667%;
+    -ms-flex: 0 0 41.66666667%;
+    flex: 0 0 41.66666667%;
+  }
+}
+@media (min-width: 1600px) {
+  .col-xlg-6 {
+    float: left;
+    width: 50%;
+    max-width: 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
+}
+@media (min-width: 1600px) {
+  .col-xlg-7 {
+    float: left;
+    width: 58.33333333%;
+    max-width: 58.33333333%;
+    -ms-flex: 0 0 58.33333333%;
+    flex: 0 0 58.33333333%;
+  }
+}
+@media (min-width: 1600px) {
+  .col-xlg-8 {
+    float: left;
+    width: 66.66666667%;
+    max-width: 66.66666667%;
+    -ms-flex: 0 0 66.66666667%;
+    flex: 0 0 66.66666667%;
+  }
+}
+@media (min-width: 1600px) {
+  .col-xlg-9 {
+    float: left;
+    width: 75%;
+    max-width: 75%;
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+  }
+}
+@media (min-width: 1600px) {
+  .col-xlg-10 {
+    float: left;
+    width: 83.33333333%;
+    max-width: 83.33333333%;
+    -ms-flex: 0 0 83.33333333%;
+    flex: 0 0 83.33333333%;
+  }
+}
+@media (min-width: 1600px) {
+  .col-xlg-11 {
+    float: left;
+    width: 91.66666667%;
+    max-width: 91.66666667%;
+    -ms-flex: 0 0 91.66666667%;
+    flex: 0 0 91.66666667%;
+  }
+}
+@media (min-width: 1600px) {
+  .col-xlg-12 {
+    float: left;
+    width: 100%;
+    max-width: 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+  }
+}
+.col-xlg-1, .col-xlg-2, .col-xlg-3, .col-xlg-4, .col-xlg-5, .col-xlg-6, .col-xlg-7, .col-xlg-8, .col-xlg-9, .col-xlg-10, .col-xlg-11, .col-xlg-12 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+/*# sourceMappingURL=bootstrapXL.css.map */

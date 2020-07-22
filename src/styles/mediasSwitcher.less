@@ -1,0 +1,237 @@
+
+.medias-switcher {
+
+  position: absolute;
+  background: white;
+  padding: 10px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18);
+  z-index: 10;
+
+  // Expands on hover
+  /*max-width: 418px;
+  max-height: 110px;
+  transition: max-width 0.5s ease-in-out, max-height 0.5s ease-in-out;
+  overflow: hidden;
+  &:hover {
+    max-width: 100%;
+    max-height: 100%;
+  }*/
+
+  & > .List {
+    float: left;
+  }
+
+  .dragged {
+    opacity: 0.5;
+  }
+
+  .media-switchbox-container {
+
+    padding: 10px;
+
+    &:not(.media-switchbox-add) button {
+      cursor: grab;
+    }
+
+    .media-switchbox {
+
+      text-align: center;
+
+      .media-switchbox-btn-container {
+
+        position: relative;
+        display: inline-block;
+
+        &, & button {
+          // No 100% for button, else strange behavior when drag n dropping on Chrome
+          height: 80px;
+        }
+
+        button {
+
+          padding: 0;
+          width: 54px;
+          overflow: hidden;
+          border: none;
+          box-shadow: 0 1px 4px 0 #818181;
+          border-radius: 3px;
+
+          // Media thumbnail as background
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+
+          &.btn-active {
+            box-shadow: 0 1px 8px 0 #000;
+          }
+
+          img {
+            height: 100%;
+          }
+
+          .overlay {
+
+            background-color: rgba(0, 0, 0, 0.3);
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            border-radius: 3px;
+
+            span {
+              color: #eee;
+              text-shadow: 0 0 3px #000;
+              font-size: 30px;
+            }
+          }
+
+          &.btn-active {
+
+            transform: scale(1.04);
+
+            .overlay {
+              background-color: rgba(0, 0, 0, 0.1);
+
+              span {
+                color: white;
+                text-shadow: 0 0 4px #00a7ff;
+                font-size: 35px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.media-switchbox-add, &.media-switchbox-delete {
+
+      float: right;
+
+      .media-switchbox {
+
+        text-align: center;
+
+        .media-switchbox-btn-container {
+
+          button {
+
+            cursor: pointer;
+            border: dashed 3px #237eff;
+            box-shadow: none;
+            background: transparent;
+
+            .overlay {
+              background-color: transparent;
+
+              span {
+                font-size: 35px;
+                color: #237eff;
+                text-shadow: none;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.media-switchbox-delete {
+
+      opacity: 0;
+      cursor: auto;
+      transition: all 100ms ease-in;
+      display: none;
+      transform-origin: 50% 50%;
+
+      .media-switchbox {
+
+        .media-switchbox-btn-container {
+
+          button {
+
+            border: dashed 3px #dc3545;
+
+            .overlay {
+
+              span {
+                color: #dc3545;
+                font-size: 32px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.media-dragstart.media-dragged {
+
+    .media-switchbox-delete {
+      // When a media is dragged, show delete button
+      opacity: 0.5;
+      display: block;
+    }
+    .media-switchbox-add {
+      // When a media is dragged, hide add button
+      opacity: 0;
+      display: none;
+    }
+  }
+
+  &.media-dragstart.media-hovers-button {
+
+    .media-switchbox-delete {
+      // When a media is dragged over trash, highlight delete button
+      transform: scale(1.2);
+      opacity: 1;
+    }
+  }
+
+  // When two rows of panels or more
+  &.multi-rows {
+
+    .List {
+      float: none;
+    }
+
+    .media-switchbox-add, .media-switchbox-delete {
+      float: left;
+    }
+  }
+
+}
+
+@media (max-height: 750px) {
+
+  .medias-switcher {
+
+    .media-switchbox-container {
+
+      padding: 5px 6px;
+
+    }
+  }
+}
+
+@media (max-height: 660px) {
+
+  .medias-switcher {
+
+    .media-switchbox-container {
+
+      padding: 2px 6px;
+
+      .media-switchbox {
+
+        .media-switchbox-btn-container {
+
+          &, & button {
+            height: 66px;
+            width: 44px;
+          }
+        }
+      }
+    }
+  }
+}

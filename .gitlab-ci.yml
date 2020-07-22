@@ -1,0 +1,63 @@
+
+before_script:
+  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+  - mkdir -p ~/.ssh
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+  - chmod 600 ~/.ssh/id_rsa
+  - eval "$(ssh-agent -s)"
+  - ssh-add ~/.ssh/id_rsa
+  - ssh-keyscan -H 'gitlab.com' >> ~/.ssh/known_hosts
+  - chmod 644 ~/.ssh/known_hosts
+  - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+
+stages:
+  - staging
+  - production
+
+Build Staging:
+  only:
+      - staging
+  image: node:8.11.3
+  stage: staging
+  environment: staging
+  variables:
+    S3_BUCKET_NAME: "bucket-clipr-code"
+  before_script:
+      - npm -g install npm --silent
+      - npm set progress=false
+      - npm -g install
+      - apt-get -y clean
+      - echo -e "deb http://deb.debian.org/debian jessie main\ndeb http://security.debian.org jessie/updates main" > /etc/apt/sources.list
+      - apt-get -y update
+      - apt-get -y install zip unzip awscli libpng-dev curl
+  script:
+    - npm install npm-install-peers --silent --save
+    - REACT_APP_STAGE=staging CI=true npm run build
+    - rm -rf public
+    - mv build public
+    - zip -r front-staging.zip public .ebextensions
+    - aws s3 cp front-staging.zip s3://$S3_BUCKET_NAME
+
+Deploy Production:
+  only:
+      - master
+  image: node:8.11.3
+  stage: production
+  environment: production
+  variables:
+    S3_BUCKET_NAME: "bucket-clipr-code"
+  before_script:
+      - npm -g install npm --silent
+      - npm set progress=false
+      - npm -g install
+      - apt-get -y clean
+      - echo -e "deb http://deb.debian.org/debian jessie main\ndeb http://security.debian.org jessie/updates main" > /etc/apt/sources.list
+      - apt-get -y update
+      - apt-get -y install zip unzip awscli libpng-dev curl
+  script:
+    - npm install npm-install-peers --silent --save
+    - REACT_APP_STAGE=production CI=true npm run build
+    - rm -rf public
+    - mv build public
+    - zip -r front-prod.zip public .ebextensions
+    - aws s3 cp front-prod.zip s3://$S3_BUCKET_NAME

@@ -1,0 +1,273 @@
+
+.media-panel-container {
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  .media-panel {
+
+    height: 571px;
+    width: 350px;
+    position: relative;
+    background: white;
+
+    -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, .18);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, .18);
+
+    .media-panel-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+    }
+
+    .media-panel-layer-media {
+      z-index: 0;
+    }
+
+    .media-panel-layer-overlay {
+      z-index: 1;
+    }
+
+    .media-panel-layer-stickers {
+      z-index: 2;
+
+      .alignment-line {
+
+        position: absolute;
+        border: solid 1px yellow;
+        -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, .18);
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, .18);
+
+        &.alignment-line-vertical {
+          height: 100%;
+        }
+
+        &.alignment-line-horizontal {
+          width: 100%;
+        }
+      }
+
+
+      .story-sticker {
+
+        cursor: move;
+        position: absolute;
+        content: '';
+        // The top and left positioning is relative to the center of element
+        transform: translate(-50%, -50%);
+
+        &.story-sticker-text_svg {
+          cursor: text;
+        }
+
+        * {
+          pointer-events: none;
+        }
+
+        @squareHalfWith: 4px;
+        @darkColor: #000;
+        @darkBorder: 2px dashed @darkColor;
+        @lightColor: #fff;
+        @lightBorder: 1px solid @lightColor;
+        @fiftyPercentCalc: calc(~"50% - " @squareHalfWith);
+
+        &.selected.story-sticker-text_svg {
+          cursor: move;
+          border-top: @darkBorder;
+          border-bottom: @darkBorder;
+        }
+
+        // Specific styles when user selects the box
+        &.selected:not(.story-sticker-text_svg) {
+
+          border: @darkBorder;
+
+          .rotatable-handle {
+
+            position: absolute;
+            top: -25px;
+            left: @fiftyPercentCalc;
+            height: 25px;
+            width: 2*@squareHalfWith;
+
+            .rotatable-handle-bar {
+              position: absolute;
+              left: ~"calc(50% - 1px)";
+              border: solid 1px #000;
+              height: 100%;
+            }
+            .rotatable-handle-circle {
+              cursor: url("../images/rotate-icon.png") 12 12, row-resize;
+              pointer-events: auto;
+              position: absolute;;
+              width: 2*@squareHalfWith;
+              height: 2*@squareHalfWith;
+              border-radius: 50%;
+              background-color: @darkColor;
+              border: @lightBorder;
+            }
+          }
+
+          .resizable-handle {
+            width: 2*@squareHalfWith;
+            height: 2*@squareHalfWith;
+            background-color: @darkColor;
+            border: @lightBorder;
+            position: absolute;
+            pointer-events: auto;
+          }
+
+          // First made through LESS loop but it's quite a mess for just saving 5-10 lines of code. Not worth it.
+          .resizable-nw {
+            left: -@squareHalfWith;
+            top: -@squareHalfWith;
+            cursor: nwse-resize;
+          }
+          .resizable-ne {
+            top: -@squareHalfWith;
+            right: -@squareHalfWith;
+            cursor: nesw-resize;
+          }
+          .resizable-sw {
+            bottom: -@squareHalfWith;
+            left: -@squareHalfWith;
+            cursor: nesw-resize;
+          }
+          .resizable-se {
+            bottom: -@squareHalfWith;
+            right: -@squareHalfWith;
+            cursor: nwse-resize;
+          }
+          .resizable-n {
+            top: -@squareHalfWith;
+            left: @fiftyPercentCalc;
+            cursor: ns-resize;
+          }
+          .resizable-s {
+            bottom: -@squareHalfWith;
+            left: @fiftyPercentCalc;
+            cursor: ns-resize;
+          }
+          .resizable-w {
+            left: -@squareHalfWith;
+            top: @fiftyPercentCalc;
+            cursor: ew-resize;
+          }
+          .resizable-e {
+            right: -@squareHalfWith;
+            top: @fiftyPercentCalc;
+            cursor: ew-resize;
+          }
+        }
+      }
+    }
+
+    .media-panel-layer-buttons {
+      z-index: 3;
+      pointer-events: none;
+      * {
+        pointer-events: none;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        opacity: 0;
+        transform-origin: 0 0;
+      }
+    }
+  }
+}
+
+@media (max-height: 930px) {
+
+  .media-panel-container {
+
+    top: auto;
+    bottom: 100px;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-height: 850px) {
+
+  .media-panel-container {
+
+    bottom: 100px;
+
+    .media-panel {
+      height: 520px;
+      width: 319px;
+    }
+  }
+}
+
+@media (max-height: 780px) {
+
+  .media-panel-container {
+
+    .media-panel {
+      height: 490px;
+      width: 300px;
+    }
+  }
+}
+
+@media (max-height: 700px) {
+
+  .media-panel-container {
+
+    bottom: 85px;
+
+    .media-panel {
+      height: 450px;
+      width: 276px;
+    }
+  }
+}
+
+@media (max-height: 660px) {
+
+  .media-panel-container {
+
+    .media-panel {
+      height: 420px;
+      width: 258px;
+    }
+  }
+}
+
+
+@media (max-height: 600px) {
+
+  .media-panel-container {
+
+    bottom: 70px;
+
+    .media-panel {
+      height: 400px;
+      width: 246px;
+    }
+  }
+}
+
+@media (max-height: 580px) {
+
+  .media-panel-container {
+
+    .media-panel {
+      height: 380px;
+      width: 233px;
+    }
+  }
+}

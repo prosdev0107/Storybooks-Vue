@@ -1,0 +1,9 @@
+.preview-switcher {
+  position: absolute;
+  margin-top: 10px;
+  width: 100%;
+}
+.preview-switcher button {
+  width: 100%;
+}
+/*# sourceMappingURL=previewSwitcher.css.map */

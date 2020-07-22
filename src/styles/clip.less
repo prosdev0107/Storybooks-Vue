@@ -1,0 +1,70 @@
+/***********************
+ !!!!!!! WARNING !!!!!!!
+ ***********************/
+
+/*
+This stylesheet is a copy of a part of real clip stylesheet.
+Do NOT develop onto this one to keep the same behavior as reality
+ */
+
+.media-panel-layer-media {
+
+  .blur-background {
+    position: absolute;
+    z-index: -200;
+
+    display: block;
+    background-size: cover;
+    background-position: center;
+    min-width: calc(100% + 20px); /* So we can't see blurred effect */
+    min-height:  calc(100% + 20px);
+
+
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+  }
+
+  .poster {
+    position: absolute;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-position: 50% 50%;
+    border: 0;
+    opacity: 0;
+
+
+    &.poster-fit-screen {
+      max-width: 100%;
+      max-height:100%;
+      @colorDarkLevel: 38;
+      @shadowMedia: 0px 2px 5px 1px rgba(@colorDarkLevel,@colorDarkLevel,@colorDarkLevel,0.5);
+      -moz-box-shadow: @shadowMedia;
+      -webkit-box-shadow: @shadowMedia;
+      -o-box-shadow: @shadowMedia;
+      box-shadow: @shadowMedia;
+    }
+
+    &.poster-full-screen {
+      min-width: 100%;
+      min-height: 100%;
+      background-position: top left;
+    }
+
+    &.poster-fill-height {
+      height: 100%;
+      opacity: 1;
+    }
+
+    &.poster-fill-width {
+      width: 100%;
+      opacity: 1;
+    }
+  }
+}
