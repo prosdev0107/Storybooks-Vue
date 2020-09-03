@@ -37,7 +37,7 @@
     "redux-form": "^7.3.0",
     "redux-subscriber": "^1.1.0",
     "redux-thunk": "^2.3.0",
-    "serve": "^9.0.0",
+    "serve": "^11.3.2",
     "styled-components": "^3.3.3"
   },
   "scripts": {
